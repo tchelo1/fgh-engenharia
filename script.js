@@ -1,7 +1,15 @@
-// Atualizar ano do rodapé automaticamente
-document.getElementById('year').textContent = new Date().getFullYear();
+const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('.nav-list');
+const navLinks = document.querySelectorAll('.nav-list a');
 
-// Abrir e fechar menu mobile
-document.getElementById("menu-toggle").addEventListener("click", function() {
-  document.getElementById("nav-list").classList.toggle("show");
+menuToggle.addEventListener('click', () => {
+  navList.classList.toggle('show');
+  document.body.classList.toggle('menu-open');
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navList.classList.remove('show');
+    document.body.classList.remove('menu-open');
+  });
 });
